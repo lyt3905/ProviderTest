@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 添加数据
-                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.myapplication.provider/dict");
+                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.testfragment.provider/dict");
                 ContentValues values = new ContentValues();
 
                 values.put("word", "providertestword");
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 查询数据
-                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.myapplication.provider/dict");
+                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.testfragment.provider/dict");
                 Cursor cursor = getContentResolver().query(uri, null, null, null, null);
                 if (cursor != null) {
                     while (cursor.moveToNext()) {
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
                         String etstring=et.getText().toString();
                         System.out.println("etstring="+etstring);
-                        Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.myapplication.provider/dict/#");
+                        Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.testfragment.provider/dict/#");
 
                         Cursor cursor = getContentResolver().query(uri, new String[]{"*"},"word=?", new  String[]{etstring}, null);
                         System.out.println("before if");
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 更新数据
-                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.myapplication.provider/dict/" + newId);
+                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.testfragment.provider/dict/" + newId);
                 ContentValues values = new ContentValues();
                 values.put("word", "updatadataword");
                 values.put("mean_word", "updatadatamean_word");
@@ -143,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // 删除数据
-                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.myapplication.provider/dict/" + newId);
+                Uri uri = Uri.parse("content://cn.edu.bistu.cs.se.testfragment.provider/dict/" + newId);
                 getContentResolver().delete(uri, null, null);
             }
         });
